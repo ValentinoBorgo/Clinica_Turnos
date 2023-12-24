@@ -1,4 +1,4 @@
-# api_ventaslocal
+# Clinica_Turnos
 App donde se implementan el uso y comunicación de microservicios.
 
 ## Características
