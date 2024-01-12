@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/shifts")
+@RequestMapping("/api/shifts")
 public class TurnoController {
 
     @Autowired

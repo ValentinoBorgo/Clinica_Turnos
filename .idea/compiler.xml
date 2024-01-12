@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api_gateway" />
         <module name="Clinica_Turnos (1) (com.clinica)" />
         <module name="Clinica_Turnos" />
         <module name="Clinica_Turnos (3) (com.turnos_agendar)" />
@@ -19,6 +20,7 @@
       <module name="Clinica_Turnos (1) (com.clinica)" options="-parameters" />
       <module name="Clinica_Turnos (2) (com.example)" options="" />
       <module name="Clinica_Turnos (3) (com.turnos_agendar)" options="-parameters" />
+      <module name="api_gateway" options="-parameters" />
     </option>
   </component>
 </project>
