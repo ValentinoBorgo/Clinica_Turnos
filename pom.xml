@@ -17,6 +17,8 @@
 	<description>Demo project for Spring Boot</description>
 
 	<modules>
+		<module>api_gateway</module>
+		<module>server</module>
 		<module>clinica</module>
 		<module>turnos_agendar</module>
 	</modules>
