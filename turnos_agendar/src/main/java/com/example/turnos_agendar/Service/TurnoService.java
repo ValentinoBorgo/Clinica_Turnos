@@ -29,7 +29,7 @@ public class TurnoService implements ITurnoService{
     public Turno saveShift(LocalDate fecha, String tratamiento, String dniPaciente) {
 
         //I am getting the patient by dni from the service_patients microservice
-        Paciente searchPatientByDni = apiPatients.getForObject("http://localhost:8761/patients/getByDni/"+dniPaciente, Paciente.class);
+        Paciente searchPatientByDni = apiPatients.getForObject("http://localhost:4001/api/clinic/patients/getByDni/"+dniPaciente, Paciente.class);
         String nombreCompleto = searchPatientByDni.getNombre() + " " + searchPatientByDni.getApellido();
 
         Turno turno = new Turno();
