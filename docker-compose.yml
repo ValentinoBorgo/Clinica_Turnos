@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+    eureka-server:
+    build: eureka-server
+    men_limit: 512m
+    port:
+        - "8761:8761"

@@ -20,7 +20,7 @@ public class TurnoController {
     @Value("${server.port}")
     private int puerto;
 
-    @GetMapping("/get")
+    @GetMapping("/all/get")
     public List<Turno> getShifts(){
         System.out.println("------------------- Estoy en el puerto " + puerto);
         return turnoService.getShifts();

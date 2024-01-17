@@ -1,0 +1,9 @@
+com\example\turnos_agendar\Controller\TurnoController.class
+com\example\turnos_agendar\Service\ITurnoService.class
+com\example\turnos_agendar\Service\TurnoService.class
+com\example\turnos_agendar\TurnosAgendarApplication.class
+com\example\turnos_agendar\Configuración\AppConfig.class
+com\example\turnos_agendar\dto\TurnoDTO.class
+com\example\turnos_agendar\Repository\ITurnoRepository.class
+com\example\turnos_agendar\Model\Paciente.class
+com\example\turnos_agendar\Model\Turno.class
