@@ -3,6 +3,7 @@ package com.example.clinica.Controller;
 import com.example.clinica.Model.Paciente;
 import com.example.clinica.Service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,12 @@ public class PacienteController {
     @Autowired
     private IPacienteService pacienteService;
 
+    @Value("${server.port}")
+    private int puerto;
+
     @GetMapping("/patients/get")
     public List<Paciente> getPatients(){
+        System.out.println("------------------- Estoy en el puerto " + puerto);
         return pacienteService.getPatients();
     }
 
