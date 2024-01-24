@@ -1,8 +1,72 @@
 version: '2.1'
 
 services:
-    eureka-server:
-    build: eureka-server
-    men_limit: 512m
-    port:
-        - "8761:8761"
+    pma:
+        image: 'phpmyadmin'
+        ports:
+            - '9999:80'
+        restart: always
+        networks:
+            - clinica-network
+        extra_hosts:
+            - "dockerhost:192.168.144.3"
+        environment:
+            - PMA_HOST=mysql
+            - MYSQL_HOST=server
+            - APACHE_RUN_USER=#1000
+            - APACHE_RUN_GROUP=#1000
+        volumes:
+            - C:/laragon/etc/apache2/alias/phpmyadmin.conf:/etc/apache2/sites-available/000-default.conf
+    mysql:
+        image: mysql:8.0
+        ports:
+            - "3333:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=service_patients
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+        volumes:
+            - mysql_data:/var/lib/mysql
+        networks:
+            - clinica-network
+    server:
+        build: server
+        mem_limit: 512m
+        ports:
+            - "8761:8761"
+        networks:
+            - clinica-network
+
+    clinica:
+        build: clinica
+        mem_limit: 512m
+        ports:
+            - "4001:4001"
+        depends_on:
+            - mysql
+        networks:
+            - clinica-network
+
+    turnos_agendar:
+        build: turnos_agendar
+        mem_limit: 512m
+        ports:
+            - "4002:4002"
+        depends_on:
+            - mysql
+        networks:
+            - clinica-network
+
+    api_gateway:
+        build: api_gateway
+        mem_limit: 512m
+        ports:
+            - "3000:3000"
+        networks:
+            - clinica-network
+
+networks:
+    clinica-network:
+
+volumes:
+    mysql_data:

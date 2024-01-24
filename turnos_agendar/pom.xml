@@ -10,8 +10,7 @@
 	</parent>
 	
 	<groupId>com.turnos_agendar</groupId>
-	<artifactId>Clinica_Turnos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>turnos</artifactId>
 
 	<name>turnos_agendar</name>
 	<description>Demo project for Spring Boot</description>

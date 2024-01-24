@@ -1,6 +1,0 @@
-com\example\clinica\Model\Paciente.class
-com\example\clinica\Service\PacienteService.class
-com\example\clinica\ClinicaApplication.class
-com\example\clinica\Controller\PacienteController.class
-com\example\clinica\Service\IPacienteService.class
-com\example\clinica\Repository\IPacienteRepository.class

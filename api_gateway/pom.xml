@@ -10,8 +10,7 @@
 	</parent>
 
 	<groupId>com.api_gateway</groupId>
-	<artifactId>Clinica_Turnos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>api_gateway</artifactId>
 
 	<name>api_gateway</name>
 	<description>Gateway</description>

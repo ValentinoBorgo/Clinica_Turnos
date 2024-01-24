@@ -10,8 +10,7 @@
 	</parent>
 	
 	<groupId>com.clinica</groupId>
-	<artifactId>Clinica_Turnos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>clinica</artifactId>
 
 	<name>clinica</name>
 	<description>Demo project for Spring Boot</description>
