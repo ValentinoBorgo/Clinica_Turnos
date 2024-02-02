@@ -16,6 +16,9 @@ App donde se implementan el uso y comunicación de microservicios.
 - ![Insomnia](https://img.shields.io/badge/-Insomnia-333333?style=flat&logo=insomnia)</br>
 - ![Postman](https://img.shields.io/badge/-Postman-333333?style=flat&logo=Postman)</br>
 - ![Docker](https://img.shields.io/badge/-Docker-333333?style=flat&logo=Docker)</br>
+- ![Bootstrap](https://img.shields.io/badge/-Bootstrap-333333?style=flat&logo=bootstrap&logoColor=563D7C)</br>
+- ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)</br>
+- ![Redux](https://img.shields.io/badge/-Redux-333333?style=flat&logo=redux)</br>
 
 ## Instalación
 //
