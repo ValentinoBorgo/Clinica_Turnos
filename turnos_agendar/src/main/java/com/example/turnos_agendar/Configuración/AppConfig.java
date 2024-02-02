@@ -18,11 +18,15 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.Properties;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 
 @Configuration
 public class AppConfig {
 
-    @Bean("apiPatients")
+    @Bean
+    @LoadBalanced
+    @Qualifier("apiPatients")
     public RestTemplate registerRestTemplate(){
         return new RestTemplate();
     }

@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Service
 public class TurnoService implements ITurnoService{
@@ -18,7 +19,8 @@ public class TurnoService implements ITurnoService{
     private ITurnoRepository turnoRepository;
 
     @Autowired
-    private RestTemplate apiPatients;
+    @Qualifier("apiPatients")
+    private RestTemplate restTemplate;
 
 
     @Override
@@ -41,7 +43,7 @@ public class TurnoService implements ITurnoService{
     public Turno saveShift(LocalDate fecha, String tratamiento, String dniPaciente) {
 
         //I am getting the patient by dni from the service_patients microservice
-        Paciente searchPatientByDni = apiPatients.getForObject("http://localhost:4001/api/clinic/patients/getByDni/"+dniPaciente, Paciente.class);
+        Paciente searchPatientByDni = restTemplate.getForObject("http://clientes/api/clinic/patients/getByDni/"+dniPaciente, Paciente.class);
         String nombreCompleto = searchPatientByDni.getNombre() + " " + searchPatientByDni.getApellido();
 
         Turno turno = new Turno();
