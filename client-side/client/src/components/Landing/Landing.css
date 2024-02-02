@@ -1,0 +1,18 @@
+.Head{
+    height: 100vh;
+    width: 200px;
+    padding: 15px 30px;
+    background-color: var(--ladoBGColor);
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: 0.4s;
+    z-index: 99;
+    background-color: orange;
+}
+
+.Landing{
+    margin-top: 30px;
+}

@@ -1,0 +1,8 @@
+*{
+    font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
