@@ -1,8 +1,7 @@
 .Head{
     height: 100vh;
-    width: 200px;
+    width: 284px;
     padding: 15px 30px;
-    background-color: var(--ladoBGColor);
     overflow-y: auto;
     position: fixed;
     left: 0;
@@ -10,9 +9,11 @@
     bottom: 0;
     transition: 0.4s;
     z-index: 99;
+    border: 0.5rem red solid;
     background-color: orange;
 }
 
-.Landing{
+.Head div, .Head h1, .Head nav, .Head ul, .Head li, .Head a{
+    background-color: inherit;
     margin-top: 30px;
 }

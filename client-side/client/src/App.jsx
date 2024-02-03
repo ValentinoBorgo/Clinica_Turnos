@@ -3,6 +3,7 @@ import { Landing } from './components/Landing/Landing'
 import { Route, Routes } from 'react-router-dom'
 import { Patients } from './components/Patients/Patients'
 import { Shifts } from './components/Shifts/Shifts'
+import '../src/App.css';
 
 
 function App() {
