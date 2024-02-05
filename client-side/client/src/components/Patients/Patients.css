@@ -32,3 +32,10 @@ h2{
     padding: 2px;
     border: 1px black solid;
 }
+
+.error{
+    margin-left : 330px ;
+    margin-top : 50px;
+    width : 13%;
+    text-decoration: underline;
+}

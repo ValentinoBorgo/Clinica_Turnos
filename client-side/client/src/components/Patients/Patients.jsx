@@ -1,27 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../Patients/Patients.css';
 import { ModalModifiedPatient } from "../../Modals/ModalModifiedPatient/ModalModifiedPatient";
 import { FormModifiedPatient } from "../FormModifiedPatient/FormModifiedPatient";
+import { useDispatch, useSelector } from 'react-redux'; 
+import { getPatients, modalModifiedPatient } from "../../redux/Reducers/Reducers";
+import { getPatientsPromise } from "../../redux/Actions/Actions";
+import { v4 as uuidv4 } from 'uuid';
 
-export function Patients(){
+
+export function Patients({ patients }){
+
+    const dispatch = useDispatch();
+
+    let [carga, setCarga] = useState(true);
+
+    const ModifiedPatient = useSelector(state => state.clinica.modalModifiedPatient);
 
     const handleModified = () =>{
-        console.log("hola");
+        dispatch(modalModifiedPatient(!ModifiedPatient));
+    }
+
+    useEffect(()=>{
+        getPatientsPromise().then(patient =>{
+            if(patient){
+                setCarga(false);
+            }
+            dispatch(getPatients(patient))
+        })
+
+    },[dispatch])
+
+
+    if(carga){
         return(
-            <ModalModifiedPatient>
-                <FormModifiedPatient />
-            </ModalModifiedPatient>
+            <div className="error">
+                <button className="btn btn-primary" type="button" disabled>
+                    <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span role="status">Loading...</span>
+                </button>
+            </div>
         )
     }
 
     return(
         <>
-         <h2>Pacientes : </h2>
-         <button className={`Agregar btn btn-outline-success`}>Agregar Paciente</button>
+        {
+            ModifiedPatient && (
+                <ModalModifiedPatient>
+                    <FormModifiedPatient />
+                </ModalModifiedPatient>
+            )
+        }
+        <h2>Pacientes : </h2>
+        <button className={`Agregar btn btn-outline-success`}>Agregar Paciente</button>
         <section className="Patients">
             <div>
-            <table className="Tabla">
-                <thead>
+                <table className="Tabla">
+                    <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
@@ -30,34 +65,22 @@ export function Patients(){
                         <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
-                </thead>
-                <thead>
-                    <tr>
-                        <th>Valentino</th>
-                        <th>Borgo</th>
-                        <th>22/01/2000</th>
-                        <th>3424381461</th>
-                        <th><button className="btn btn-outline-warning" onClick={handleModified}>*</button></th>
-                        <th><button className="btn btn-danger">X</button></th>
-                    </tr>
-                    <tr>
-                        <th>Valentino</th>
-                        <th>Borgo</th>
-                        <th>22/01/2000</th>
-                        <th>3424381461</th>
-                        <th><button className="btn btn-outline-warning">*</button></th>
-                        <th><button className="btn btn-danger">X</button></th>
-                    </tr>
-                    <tr>
-                        <th>Valentino</th>
-                        <th>Borgo</th>
-                        <th>22/01/2000</th>
-                        <th>3424381461</th>
-                        <th><button className="btn btn-outline-warning">*</button></th>
-                        <th><button className="btn btn-danger">X</button></th>
-                    </tr>
-                </thead>
-            </table> 
+                    </thead>
+                    {
+                        patients?.map(p =>{
+                            return (<thead key={p.idPaciente}>
+                                <tr>
+                                    <th>{p.nombre}</th>
+                                    <th>{p.apellido}</th>
+                                    <th>{p.fechaNac}</th>
+                                    <th>{p.telefono}</th>
+                                    <th><button className="btn btn-outline-warning" onClick={handleModified}>*</button></th>
+                                    <th><button className="btn btn-danger">X</button></th>
+                                </tr>
+                            </thead>
+                        )})
+                    }
+                </table>
             </div>
         </section>
         </>
