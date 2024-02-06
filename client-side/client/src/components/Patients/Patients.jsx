@@ -3,7 +3,7 @@ import '../Patients/Patients.css';
 import { ModalModifiedPatient } from "../../Modals/ModalModifiedPatient/ModalModifiedPatient";
 import { FormModifiedPatient } from "../FormModifiedPatient/FormModifiedPatient";
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getPatients, modalModifiedPatient } from "../../redux/Reducers/Reducers";
+import { getPatientSelected, getPatients, modalModifiedPatient } from "../../redux/Reducers/Reducers";
 import { getPatientsPromise } from "../../redux/Actions/Actions";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,8 +16,9 @@ export function Patients({ patients }){
 
     const ModifiedPatient = useSelector(state => state.clinica.modalModifiedPatient);
 
-    const handleModified = () =>{
+    const handleModified = (p) =>{
         dispatch(modalModifiedPatient(!ModifiedPatient));
+        dispatch(getPatientSelected(p))
     }
 
     useEffect(()=>{
@@ -74,7 +75,7 @@ export function Patients({ patients }){
                                     <th>{p.apellido}</th>
                                     <th>{p.fechaNac}</th>
                                     <th>{p.telefono}</th>
-                                    <th><button className="btn btn-outline-warning" onClick={handleModified}>*</button></th>
+                                    <th><button className="btn btn-outline-warning" onClick={() => handleModified(p)}>*</button></th>
                                     <th><button className="btn btn-danger">X</button></th>
                                 </tr>
                             </thead>

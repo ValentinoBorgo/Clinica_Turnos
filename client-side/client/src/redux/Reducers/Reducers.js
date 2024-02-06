@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     modalModifiedPatient : false,
-    patients : []
+    patients : [],
+    patientSelected : []
 }
 
 export const rootReducer = createSlice({
@@ -14,13 +15,17 @@ export const rootReducer = createSlice({
         },
         getPatients : (state, action) => {
             state.patients = action.payload;
+        },
+        getPatientSelected : (state, action) => {
+            state.patientSelected = action.payload;
         }
     }
 })
 
 export const {
     modalModifiedPatient,
-    getPatients
+    getPatients,
+    getPatientSelected
 }  = rootReducer.actions;
 
 export default rootReducer.reducer;

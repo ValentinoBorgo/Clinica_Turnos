@@ -12,14 +12,24 @@ export function FormModifiedPatient(){
 
     const ModifiedPatient = useSelector(state => state.clinica.modalModifiedPatient);
 
-    const handleExit = () =>{
+    let getPatientSelected = useSelector(state => state.clinica.patientSelected);
+
+    const handleExit = () => {
         dispatch(modalModifiedPatient(!ModifiedPatient))
     }
 
-    const handleSelect = (e) =>{
-        setOption(e.target.value);
+    const handleSelect = (e) => {
+        if(e.target.value === "nombre"){
+            setOption("Modifica el Nombre");
+        }else if(e.target.value === "apellido"){
+            setOption("Modifica el Apellido");
+        }else if(e.target.value === "fechaNac"){
+            setOption("Modifica la Fecha de Nacimiento");
+        }else{
+            setOption("Modifica el numero de Teléfono");
+        }
+        console.log(getPatientSelected);
         console.log("Target value " + e.target.value);
-        console.log(option);
     }
 
 
@@ -31,16 +41,17 @@ export function FormModifiedPatient(){
             <button className="btn btn-danger" onClick={handleExit} style={{marginTop : '-3rem', marginLeft : '-2rem'}}>X</button>
             <label>Selecciona lo que quieras modificar : </label>
             <select name="propiedades" id="prop" className="divs" onClick={(e) => handleSelect(e)}>
-                <option value="Nombre">Nombre</option>
-                <option value="Apellido">Apellido</option>
-                <option value="Fecha Nacimiento">Fecha Nacimiento</option>
-                <option value="Teléfono">Teléfono</option>
+                <option value="nombre">Nombre</option>
+                <option value="apellido">Apellido</option>
+                <option value="fechaNac">Fecha Nacimiento</option>
+                <option value="telefono">Teléfono</option>
             </select>
             {
                 option && (
                     <>
                             <label className="divs">{option}</label>
                             <input type="text" className="divs" />
+                            <button type="submit" className="btn btn-success divs">Modificar</button>
                     </>
                 )
             }
