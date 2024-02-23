@@ -8,12 +8,12 @@ export function NavBar(){
         <nav>
             <ul>
                 <li>
-                    <NavLink to='/log/pacientes'>
+                    <NavLink to='/pacientes'>
                         Pacientes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/log/turnos'>
+                    <NavLink to='/turnos'>
                         Turnos
                     </NavLink>
                 </li>

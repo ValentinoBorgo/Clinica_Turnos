@@ -10,10 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.http.HttpHeaders;
 
 @RestController
 @RequestMapping("/api/clinic")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PacienteController {
 
     @Autowired
@@ -55,9 +56,21 @@ public class PacienteController {
         return pacienteService.deletePatient(id);
     }
 
-    @PutMapping("/patients/edit/{id}")
+    @PutMapping("/clientes/api/clinic/patients/edit/{id}")
     public Paciente editPatient(@RequestBody Paciente paciente, @PathVariable Long id){
         return pacienteService.editPatient(id, paciente);
     }
-
+    
+    
+    /*
+    @RequestMapping(value = "/patients/edit/{id}", method = {RequestMethod.OPTIONS, RequestMethod.PUT})
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> handleOptions(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Origin", "http://localhost:5173");
+        headers.add("Access-Control-Allow-Methods", "PUT, OPTIONS");
+        headers.add("Access-Control-Allow-Headers", "Content-Type");
+        return new ResponseEntity<>(headers,HttpStatus.OK);
+    }
+*/
 }

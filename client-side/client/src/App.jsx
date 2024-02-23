@@ -17,8 +17,8 @@ function App() {
       <Landing />
       <Routes>
         <Route path='/' element={<p style={{marginLeft : '300px', marginTop : '100px', backgroundColor : 'red'}}>Hola mundo</p>} />
-        <Route path='/log/pacientes' element={<Patients patients={patients}/>} />
-        <Route path='log/turnos' element={<Shifts />} />
+        <Route path='/pacientes' element={<Patients patients={patients}/>} />
+        <Route path='/turnos' element={<Shifts />} />
       </Routes>
     </div>
     </>

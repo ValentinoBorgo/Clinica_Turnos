@@ -20,7 +20,10 @@ public class ApiGatewayApplication {
             @Override
 		public void addCorsMappings(org.springframework.web.servlet.config.annotation.CorsRegistry registry) {
                     //we can provide other routes, further than the "/**".
-			registry.addMapping("/**").allowedOrigins("http://localhost:5173").allowedMethods("*").allowedHeaders("*");
+			registry.addMapping("/**")
+                                .allowedOrigins("http://localhost:5173")
+                                .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
+                                .allowedHeaders("*");
 		}
 	};
 }

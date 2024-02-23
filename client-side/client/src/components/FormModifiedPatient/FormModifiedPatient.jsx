@@ -40,6 +40,7 @@ export function FormModifiedPatient(){
         last[prop] = input;
         console.log(last);
         modifiedPatient(last);
+        dispatch(modalModifiedPatient(!ModifiedPatient))
     }
 
     const handleInputText = (e) => {
