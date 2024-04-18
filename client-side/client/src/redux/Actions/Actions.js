@@ -22,7 +22,8 @@ export const getShiftsPromise = async () =>{
 export const modifiedPatient = async (data) => {
     try{
         const {idPaciente, nombre, apellido, dni, telefono, fechaNac} = data;
-        const response = await axios.put('http://localhost:3000/clientes/api/clinic/patients/edit/'+ idPaciente, data);
+        const response = await axios.put('http://localhost:3000/clientes/api/clinic/patients/edit/'+ idPaciente, data,{
+        });
         alert("Paciente " + nombre + " a sido modificado correctamente");
     }catch(error){
         console.log("El error es  : ", error);

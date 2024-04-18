@@ -25,7 +25,7 @@ public class ClinicaApplication {
                     //we can provide other routes, further than the "/**".
 			registry.addMapping("/**")
                                 .allowedOrigins("*")
-                                .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
+                                .allowedMethods("POST","PUT","DELETE","OPTIONS","GET")
                                 .allowedHeaders("*");
 		}
 	};

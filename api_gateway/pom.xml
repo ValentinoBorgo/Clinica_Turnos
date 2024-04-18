@@ -59,6 +59,36 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+	 <dependency>
+	  <groupId>org.apache.servicemix.bundles</groupId>
+	  <artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
+	  <version>5.2.1.RELEASE_1</version>
+	  <type>bundle</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.springframework.security</groupId>
+	  <artifactId>spring-security-config</artifactId>
+	  <version>5.7.5</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>servlet-api</artifactId>
+	  <version>3.0-alpha-1</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.apache.servicemix.bundles</groupId>
+	  <artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
+	  <version>4.2.4.RELEASE_1</version>
+	  <type>bundle</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.springframework.security</groupId>
+	  <artifactId>spring-security-web</artifactId>
+	  <version>6.2.2</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 

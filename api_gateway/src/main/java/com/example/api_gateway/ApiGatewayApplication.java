@@ -22,8 +22,9 @@ public class ApiGatewayApplication {
                     //we can provide other routes, further than the "/**".
 			registry.addMapping("/**")
                                 .allowedOrigins("http://localhost:5173")
-                                .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
-                                .allowedHeaders("*");
+                                .allowedMethods("POST","PUT","DELETE","OPTIONS","GET")
+                                .allowedHeaders("Authorization","Content-Type","X-Requested-With");
+                        System.out.println("INICIO API_GATEWAY");
 		}
 	};
 }

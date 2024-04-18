@@ -14,7 +14,8 @@ import org.springframework.http.HttpHeaders;
 
 @RestController
 @RequestMapping("/api/clinic")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.DELETE, RequestMethod.GET,
+    RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.PUT})
 public class PacienteController {
 
     @Autowired
@@ -56,21 +57,9 @@ public class PacienteController {
         return pacienteService.deletePatient(id);
     }
 
-    @PutMapping("/clientes/api/clinic/patients/edit/{id}")
+    @PutMapping("/patients/edit/{id}")
     public Paciente editPatient(@RequestBody Paciente paciente, @PathVariable Long id){
         return pacienteService.editPatient(id, paciente);
     }
     
-    
-    /*
-    @RequestMapping(value = "/patients/edit/{id}", method = {RequestMethod.OPTIONS, RequestMethod.PUT})
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> handleOptions(){
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "http://localhost:5173");
-        headers.add("Access-Control-Allow-Methods", "PUT, OPTIONS");
-        headers.add("Access-Control-Allow-Headers", "Content-Type");
-        return new ResponseEntity<>(headers,HttpStatus.OK);
-    }
-*/
 }
