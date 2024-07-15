@@ -29,6 +29,6 @@ App where the use and communication of microservices are implemented, also using
 
 Contributions are always welcome. If you encounter any problems or have any suggestions, feel free to open an issue or send a pull request.
 
-## Autores
+## Authors
 
 Borgo Valentino</br>
