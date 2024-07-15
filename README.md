@@ -1,5 +1,5 @@
 # Clinica_Turnos
-App donde se implementan el uso y comunicación de microservicios.
+App where the use and communication of microservices are implemented, also using docker containers.
 
 ## Características
 
